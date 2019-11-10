@@ -1,0 +1,8 @@
+﻿  Circle.cpp
+  deprecated_color.cpp
+  Item.cpp
+  main.cpp
+C:\Users\cawit\source\repos\IntroToGL\IntroToGL\main.cpp(62,92): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Generating Code...
+C:\Users\cawit\source\repos\IntroToGL\IntroToGL\main.cpp(62,46): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  IntroToGL.vcxproj -> C:\Users\cawit\source\repos\IntroToGL\x64\Debug\IntroToGL.exe
