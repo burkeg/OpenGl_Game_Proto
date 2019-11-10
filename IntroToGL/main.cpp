@@ -6,6 +6,7 @@ int main(void)
 	{
 		exit(EXIT_FAILURE);
 	}
+	glfwWindowHint(GLFW_SAMPLES, 8);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	GLFWwindow* window = glfwCreateWindow(480, 480, "Tutorial", NULL, NULL);
@@ -30,11 +31,8 @@ int main(void)
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
 		ratio = (float)width / (float)height;
-		glViewport(0, 0, width, height);
+		//glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		//Movement
-
 
 		//Color
 		item.update();
