@@ -1,9 +1,9 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#include "Item.h"
+#include "Shape.h"
 
-class Circle : public Item
+class Circle : public Shape
 {
 protected:
 	float radius;

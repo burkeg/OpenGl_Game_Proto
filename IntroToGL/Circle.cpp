@@ -1,7 +1,7 @@
 #include "Circle.h"
 
 //Circle Constructor 
-Circle::Circle(float r, float g, float b, float x, float y, float rad) : Item(r, g, b, x, y)
+Circle::Circle(float r, float g, float b, float x, float y, float rad) : Shape(r, g, b, x, y)
 {
 	radius = rad;
 }

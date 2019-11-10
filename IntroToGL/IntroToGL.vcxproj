@@ -134,12 +134,12 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="deprecated_color.cpp" />
-    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
-    <ClInclude Include="Item.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="linmath.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
