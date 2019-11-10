@@ -16,7 +16,10 @@ int main(void)
 	}
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1);
-	
+
+	/* Set key callback */
+	glfwSetKeyCallback(window, key_callback);
+
 	Circle item = Circle(0.1f, 0.2f, 0.5f, 0.5f, -0.5f, 0.2f);
 	Circle item2 = Circle(0.2f, 0.3f, 0.1f, 0.0f, 0.0f, 0.1f);
 	item2.set_speed(0.03f, 0.05f);
@@ -50,6 +53,13 @@ int main(void)
 	glfwTerminate();
 	exit(EXIT_SUCCESS);
 }
+
+
+void error_callback(int error, const char* description)
+{
+	fprintf(stderr, "Error: %s\n", description);
+}
+
 
 void draw_item(Circle c)
 {
