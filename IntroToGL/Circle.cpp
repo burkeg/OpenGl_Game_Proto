@@ -10,7 +10,7 @@ void Circle::move_item_x(void)
 {
 	if (move_right == true)
 	{
-		if (pos[0] < 1 - radius)
+		if (pos[0] < 1 - (radius * window_ratio))
 		{
 			pos[0] += speed[0];
 		}
@@ -22,7 +22,7 @@ void Circle::move_item_x(void)
 	}
 	else
 	{
-		if (pos[0] > -1 + radius)
+		if (pos[0] > -1 + (radius * window_ratio))
 		{
 			pos[0] -= speed[0];
 		}

@@ -1,7 +1,11 @@
 #include "main.h"
+#include "WindowUtilites.h"
+
+float window_ratio;
 
 int main(void)
 {
+	
 	if (!glfwInit())
 	{
 		exit(EXIT_FAILURE);
@@ -22,16 +26,15 @@ int main(void)
 	/* Set key callback */
 	glfwSetKeyCallback(window, key_callback);
 
-	Circle item = Circle(0.1f, 0.2f, 0.5f, 0.5f, -0.5f, 0.2f);
+	Circle item = Circle(0.1f, 0.2f, 0.5f, 0.5f, -0.5f, 0.5f);
 	Circle item2 = Circle(0.2f, 0.3f, 0.1f, 0.0f, 0.0f, 0.1f);
 	item2.set_speed(0.03f, 0.05f);
 	while (!glfwWindowShouldClose(window))
 	{
 		//Setup View
-		float ratio;
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
-		ratio = (float)height / (float)width;
+		window_ratio = (float)height / (float)width;
 		glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -40,8 +43,8 @@ int main(void)
 		item2.update();
 
 
-		draw_item(item, ratio);
-		draw_item(item2, ratio);
+		draw_item(item);
+		draw_item(item2);
 
 		//Swap buffer and check for events
 		glfwSwapBuffers(window);
@@ -66,7 +69,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 
 
-void draw_item(Circle c, float ratio)
+void draw_item(Circle c)
 {
 	//Drawing
 	glColor3f(c.get_red(), c.get_green(), c.get_blue());
@@ -74,7 +77,7 @@ void draw_item(Circle c, float ratio)
 	for (int i = 0; i < 360; i++)
 	{
 		float degInRad = i * DEG2RAD;
-		glVertex3f((cos(degInRad) * c.get_radius() * ratio + c.get_x()), (sin(degInRad) * c.get_radius() + c.get_y()), 0);
+		glVertex3f((cos(degInRad) * c.get_radius() * window_ratio + c.get_x()), (sin(degInRad) * c.get_radius() + c.get_y()), 0);
 	}
 	glEnd();
 }

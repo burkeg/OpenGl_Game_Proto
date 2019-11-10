@@ -144,6 +144,7 @@
     <ClInclude Include="linmath.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ShapeManager.h" />
+    <ClInclude Include="WindowUtilites.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

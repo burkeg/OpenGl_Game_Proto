@@ -8,5 +8,5 @@
 constexpr float DEG2RAD = (3.1415926535f / 180.0f);
 
 
-void draw_item(Circle c, float ratio);
+void draw_item(Circle c);
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);

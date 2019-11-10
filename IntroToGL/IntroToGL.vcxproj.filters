@@ -47,5 +47,8 @@
     <ClInclude Include="ShapeManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WindowUtilites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

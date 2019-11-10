@@ -2,6 +2,7 @@
 #define CIRCLE_H
 
 #include "Shape.h"
+#include "WindowUtilites.h"
 
 class Circle : public Shape
 {
