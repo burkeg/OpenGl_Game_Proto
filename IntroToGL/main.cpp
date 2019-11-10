@@ -9,7 +9,8 @@ int main(void)
 	glfwWindowHint(GLFW_SAMPLES, 8);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-	GLFWwindow* window = glfwCreateWindow(480, 480, "Tutorial", glfw, NULL);
+	//GLFWwindow* window = glfwCreateWindow(480, 480, "Tutorial", glfwGetPrimaryMonitor(), NULL);
+	GLFWwindow* window = glfwCreateWindow(480, 480, "Tutorial", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -30,8 +31,8 @@ int main(void)
 		float ratio;
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
-		ratio = (float)width / (float)height;
-		//glViewport(0, 0, width, height);
+		ratio = (float)height / (float)width;
+		glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//Color
@@ -39,8 +40,8 @@ int main(void)
 		item2.update();
 
 
-		draw_item(item);
-		draw_item(item2);
+		draw_item(item, ratio);
+		draw_item(item2, ratio);
 
 		//Swap buffer and check for events
 		glfwSwapBuffers(window);
@@ -65,7 +66,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 
 
-void draw_item(Circle c)
+void draw_item(Circle c, float ratio)
 {
 	//Drawing
 	glColor3f(c.get_red(), c.get_green(), c.get_blue());
@@ -73,7 +74,7 @@ void draw_item(Circle c)
 	for (int i = 0; i < 360; i++)
 	{
 		float degInRad = i * DEG2RAD;
-		glVertex3f((cos(degInRad) * c.get_radius() + c.get_x()), (sin(degInRad) * c.get_radius() + c.get_y()), 0);
+		glVertex3f((cos(degInRad) * c.get_radius() * ratio + c.get_x()), (sin(degInRad) * c.get_radius() + c.get_y()), 0);
 	}
 	glEnd();
 }
